@@ -3,8 +3,9 @@ from requests import Response
 
 
 class Client:
+
     @staticmethod
-    def custom_request(method: str, url: str, **kwargs) -> Response:
+    def custom_request(method: str, url: str, headers=None, **kwargs) -> Response:
         """
         Request method
         method: method for the new Request object: GET, OPTIONS, HEAD, POST, PUT, PATCH, or DELETE. # noqa
@@ -14,4 +15,4 @@ class Client:
             json – (optional) A JSON serializable Python object to send in the body of the Request. # noqa
             headers – (optional) Dictionary of HTTP Headers to send with the Request.
         """
-        return requests.request(method, url, **kwargs)
+        return requests.request(method, url, headers=headers, **kwargs)
